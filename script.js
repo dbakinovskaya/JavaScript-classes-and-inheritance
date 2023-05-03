@@ -52,3 +52,28 @@ function StringBuilder(value) {
 }
 
 StringBuilder.prototype = Object.create(BaseClass.prototype);
+
+StringBuilder.prototype.minus = function(n) {
+    this.value = this.value.slice(0, this.value.length-n)
+    return this;
+}
+
+StringBuilder.prototype.multiply = function(int) {
+    this.value = this.value.repeat(int)
+    return this;
+}
+
+StringBuilder.prototype.divide = function(n) {
+    this.value = this.value.slice(0, Math.floor(this.value.length / n))
+    return this;
+}
+
+StringBuilder.prototype.remove = function(str) {
+    this.value = this.value.split('').filter((el) => el != str).join('');
+    return this;
+}
+
+StringBuilder.prototype.sub = function(from, n) {
+    this.value = this.value.substring(from, n);
+    return this;
+}
