@@ -4,7 +4,7 @@ class BaseClass {
     }
 
     get() {
-        return this.value
+        return this.value;
     }
 
     plus(...values) {
@@ -22,7 +22,25 @@ class IntBuilder extends BaseClass {
         }
     }
 
+    minus(...values) {
+        this.value = values.reduce((a,b) => a-b, this.value);
+        return this;
+    }
 
+    multiply(n) {
+        this.value *= n;
+        return this;
+    }
+
+    divide(n) {
+        this.value = Math.trunc(this.value/n);
+        return this;
+    }
+
+    mod(n) {
+        this.value %= n;
+        return this;
+    }
 }
 
 //ES5
@@ -34,4 +52,3 @@ function StringBuilder(value) {
 }
 
 StringBuilder.prototype = Object.create(BaseClass.prototype);
-
