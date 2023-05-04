@@ -69,11 +69,13 @@ StringBuilder.prototype.divide = function(n) {
 }
 
 StringBuilder.prototype.remove = function(str) {
-    this.value = this.value.split('').filter((el) => el != str).join('');
+    while (this.value.includes(str)) {
+        this.value = this.value.substring(0, this.value.indexOf(str)) + this.value.substring(this.value.indexOf(str) + str.length);
+    }
     return this;
 }
 
 StringBuilder.prototype.sub = function(from, n) {
-    this.value = this.value.substring(from, n);
+    this.value = this.value.substr(from, n);
     return this;
 }
