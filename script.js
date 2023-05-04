@@ -76,6 +76,6 @@ StringBuilder.prototype.remove = function(str) {
 }
 
 StringBuilder.prototype.sub = function(from, n) {
-    this.value = this.value.substr(from, n);
+    this.value = this.value.substring(from, n+1);
     return this;
 }
